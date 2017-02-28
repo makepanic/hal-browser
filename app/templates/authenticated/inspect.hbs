@@ -1,0 +1,37 @@
+{{resource-overview
+  resource=model
+  openUrl=(action 'openUrl')}}
+
+<div class="main-frame">
+  <div class="main-frame__side">
+    {{#if links}}
+      {{#ui-segment title='links'}}
+        <div class="ui middle aligned divided list">
+          {{#each links as |link|}}
+            {{resource-link class='item' link=link followHref=(action 'followHref') followLink=(action 'followLink')}}
+          {{/each}}
+        </div>
+      {{/ui-segment}}
+    {{/if}}
+    {{#if embedded}}
+      {{#ui-segment title='embedded'}}
+        <div class="ui middle aligned divided list">
+          {{#each embedded as |resource|}}
+            {{#each resource.embedded as |link|}}
+              {{resource-link class='item' link=link allowFollowLink=false followHref=(action 'followHref')}}
+            {{/each}}
+          {{/each}}
+        </div>
+      {{/ui-segment}}
+    {{/if}}
+  </div>
+  <div class="main-frame__content">
+    {{#ui-segment title='Response header'}}
+      {{response-header header=model.header}}
+    {{/ui-segment}}
+    {{#ui-segment title='Response body'}}
+      {{response-body json=model.response}}
+    {{/ui-segment}}
+  </div>
+</div>
+{{outlet}}

@@ -1,0 +1,25 @@
+<div class="resource-link__head">
+  <div class="resource-link__name">{{link.name}}</div>
+  <div class="resource-link__control">
+    {{#if link.templated}}
+      {{#if allowFollowLink}}
+        <button class="ui right labeled icon mini basic primary button" {{action (action followLink link)
+                                                                                 bubbles=false}}>
+          <i class="setting icon"></i>
+          follow
+        </button>
+      {{/if}}
+    {{else}}
+      <button class="ui right labeled icon mini basic button" {{action (action followHref link) bubbles=false}}>
+        <i class="right arrow icon"></i>
+        follow
+      </button>
+      {{#if allowFollowLink}}
+        <button class="ui icon mini primary basic button" {{action (action followLink link) bubbles=false}}>
+          <i class="setting icon"></i>
+        </button>
+      {{/if}}
+    {{/if}}
+  </div>
+</div>
+{{yield}}

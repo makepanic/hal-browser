@@ -1,0 +1,21 @@
+$side-width: 40%;
+$content-width: 58%;
+
+.main-frame{
+  position: relative;
+}
+
+.main-frame__side{
+  top: 0;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  width: $side-width;
+}
+.main-frame__content{
+  top: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  width: $content-width;
+}

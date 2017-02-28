@@ -1,0 +1,51 @@
+{{#sem-modal clickOutsideToClose=true close=(action 'close')}}
+  <div class="header">follow link: <code>{{link.name}}</code></div>
+  <div class="content">
+    <div class="ui grid">
+      <div class="eight wide column">
+        <form class="ui form">
+          <h4 class="ui dividing header">General</h4>
+          <div class="inline fields">
+            <div class="six wide field">
+              <label>Method</label>
+            </div>
+            <div class="ten wide field">
+              {{one-way-select
+                method
+                options=methods
+                update=(action (mut method))
+              }}
+            </div>
+          </div>
+          {{#if link.templated}}
+            <h4 class="ui dividing header">Template parameters</h4>
+            {{#each variables as |var|}}
+              <div class="inline fields">
+                <div class="six wide field">
+                  <label>{{var}}</label>
+                </div>
+                <div class="ten wide field">
+                  {{one-way-input (get expand var) update=(action (mut (get expand var)))}}
+                </div>
+              </div>
+            {{/each}}
+          {{/if}}
+        </form>
+      </div>
+      <div class="eight wide column">
+        {{#if (contains method methodsWithBody)}}
+          <h4 class="ui dividing header">Body</h4>
+          {{json-editor json=data mode='code' modes=modes onChange=(action (mut data))}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui positive right labeled icon button" {{action 'followExpanded'}}>
+      Follow
+      <i class="right arrow icon"></i>
+    </div>
+  </div>
+{{/sem-modal}}
+
+{{outlet}}

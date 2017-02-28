@@ -1,0 +1,14 @@
+<form class="ui container" {{action (action openUrl resource.url) on='submit'}}>
+  <div class="ui fluid action right icon input">
+    {{one-way-input
+      resource.url
+      update=(action (mut resource.url))}}
+    <button class="ui button" type="submit">
+      <i class="search icon"></i> Open
+    </button>
+  </div>
+</form>
+<div class="resource-overview__status">
+  {{resource.status}} {{resource.textStatus}}
+</div>
+{{yield}}

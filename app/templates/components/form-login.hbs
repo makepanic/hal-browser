@@ -1,0 +1,44 @@
+<form class="ui form">
+  <div class="field">
+    <label>OAuth2 Server</label>
+    {{one-way-input oauthServer update=(action (mut oauthServer))}}
+  </div>
+  <div class="two fields">
+    <div class="field">
+      <label>ClientId</label>
+      {{one-way-input clientId update=(action (mut clientId))}}
+    </div>
+    <div class="field">
+      <label>ClientSecret</label>
+      {{one-way-input clientSecret update=(action (mut clientSecret))}}
+    </div>
+  </div>
+  <div class="field">
+    <label>GrantType</label>
+    {{one-way-select
+      grantType
+      class='ui fluid dropdown'
+      options=grantTypes
+      update=(action (mut grantType))
+    }}
+  </div>
+  {{#if (eq grantType 'password')}}
+    <div class="two fields">
+      <div class="field">
+        <label>Username</label>
+        {{one-way-input username update=(action (mut username))}}
+      </div>
+      <div class="field">
+        <label>Password</label>
+        {{one-way-input password type='password'  update=(action (mut password))}}
+      </div>
+    </div>
+  {{/if}}
+
+  <button class="ui left labeled primary fluid icon button" {{action 'submit'}}>
+    <i class="sign in icon"></i>
+    Sign in
+  </button>
+</form>
+
+{{yield}}

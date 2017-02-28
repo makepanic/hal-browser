@@ -7,6 +7,12 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('login');
+  this.route('authenticated', {path: '/browse'}, function() {
+    this.route('inspect', {path: '/:resource_url'}, function() {
+      this.route('follow', {path: '/:link_name'});
+    });
+  });
 });
 
 export default Router;

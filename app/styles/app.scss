@@ -1,0 +1,135 @@
+@import "components/resource-link";
+@import "components/resource-overview";
+@import "components/ui-segment";
+@import "components/main-frame";
+
+html {
+  font-family: 'Fira Sans', sans-serif;
+}
+
+body > div:not(#modal-overlays) {
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+
+  src:  url(../fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src:  local('Material Icons'),
+  local('MaterialIcons-Regular'),
+  url(../fonts/MaterialIcons-Regular.woff2) format('woff2'),
+  url(../fonts/MaterialIcons-Regular.woff) format('woff'),
+  url(../fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.v-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%
+}
+
+.prism {
+  background: #2a2734;
+  margin: 0;
+  padding: 10px;
+}
+
+code[class*="language-"] {
+  font-family: Iosevka, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
+  font-size: 14px;
+}
+
+.fixed-menu-icon {
+  width: 22px !important;
+  height: 22px !important;
+}
+
+.fixed-menu-content {
+  margin-top: 49px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ember-modal-overlay {
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 50;
+}
+
+.ember-modal-dialog {
+  z-index: 50;
+  position: fixed;
+
+  /*&.ember-modal-dialog-in-place {*/
+  /*position: relative;*/
+  /*}*/
+}
+.ember-modal-dialog {
+  /* The library calculates the margin-left
+  and margin-right values using JS, and does
+  not re-calculate if the content inside the
+  modal changes its size.
+  The following lines keep the modal
+  horizontally and vertically centered
+  even after inner content changes sizes.*/
+  margin-left: auto !important;
+  margin-top: auto !important;
+  top: 100px !important;
+  transform: translate(-50%, 0);
+}
+
+.ember-modal-dialog {
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #222;
+  padding: 10px;
+}
+
+.ember-cli-jsoneditor {
+  height: 500px;
+}
+
+.ember-modal-overlay {
+  background-color: rgba(0, 0, 0, .77);
+  padding-top: 100px;
+  padding-bottom: 50px;
+  overflow-y: auto;
+}
+
+.ui.ember-modal-dialog{
+  position: relative;
+  left: 0 !important;
+  top: 0 !important;
+}

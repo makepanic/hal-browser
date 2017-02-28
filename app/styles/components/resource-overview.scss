@@ -1,0 +1,38 @@
+.resource-overview {
+  background-color: #1d2438;
+  padding: 20px 0;
+  padding-bottom: 0;
+  color: #fff;
+}
+
+.resource-overview__status {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 20px;
+  border-bottom: 1px solid #ced4da;
+  padding: 5px 0;
+}
+
+.resource-overview--ok {
+  .resource-overview__status {
+    background-color: #087f5b;
+  }
+}
+
+.resource-overview--client-error {
+  .resource-overview__status {
+    background-color: #d9480f;
+  }
+}
+
+.resource-overview--server-error {
+  .resource-overview__status {
+    background-color: #c92a2a;
+  }
+}
+
+.resource-overview--unknown {
+  .resource-overview__status {
+  }
+}
