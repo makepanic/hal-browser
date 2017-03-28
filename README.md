@@ -1,9 +1,12 @@
 # hal-browser
 
-This is a WIP
+This is a WIP.
+
+Demo: [https://makepanic.github.io/hal-browser/](https://makepanic.github.io/hal-browser/).
 
 ## TODO
 
+- make auth optional
 - convert everything to TS
 - proper style, layout
 - proper loading state
