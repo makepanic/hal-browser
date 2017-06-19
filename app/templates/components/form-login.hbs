@@ -1,5 +1,9 @@
 <form class="ui form">
   <div class="field">
+    <label>Hal Entrypoint</label>
+    {{one-way-input entryPoint update=(action (mut entryPoint))}}
+  </div>
+  <div class="field">
     <label>OAuth2 Server</label>
     {{one-way-input oauthServer update=(action (mut oauthServer))}}
   </div>
@@ -35,7 +39,7 @@
     </div>
   {{/if}}
 
-  <button class="ui left labeled primary fluid icon button" {{action 'submit'}}>
+  <button type="button" class="ui left labeled primary fluid icon button" {{action 'submit'}}>
     <i class="sign in icon"></i>
     Sign in
   </button>

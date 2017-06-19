@@ -1,7 +1,6 @@
 /*jshint node:true*/
 /* global require, module */
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-const autoprefixer = require('autoprefixer');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {

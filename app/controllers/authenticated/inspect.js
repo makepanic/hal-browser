@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const {inject:{service}, computed, get, isArray} = Ember;
+const {inject: {service}, computed, get, isArray, assign} = Ember;
 
 export default Ember.Controller.extend({
   ajax: service(),
@@ -32,10 +32,7 @@ export default Ember.Controller.extend({
     }
 
     return Object.keys(_links).map(linkName => {
-      return {
-        name: linkName,
-        ..._links[linkName]
-      }
+      return assign({name: linkName}, _links[linkName]);
     });
   }),
 
@@ -66,10 +63,7 @@ export default Ember.Controller.extend({
                 _links = {};
               }
 
-              return {
-                name: `${modelName}[${idx}]`,
-                ..._links['self']
-              };
+              return assign({name: `${modelName}[${idx}]`}, _links['self']);
             })
         });
       });

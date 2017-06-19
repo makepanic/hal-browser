@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ENV from 'hal-browser/config/environment';
+import Configuration from 'hal-browser/utils/configuration';
 
 const {Component, inject:{service}} = Ember;
 
@@ -15,6 +15,7 @@ export default Component.extend({
   clientSecret: '',
   username: '',
   password: '',
+  entryPoint: Configuration.entryPoint,
 
   authenticate(){
     const {
@@ -23,9 +24,14 @@ export default Component.extend({
       clientSecret,
       username,
       password,
-      oauthServer
-    } = this.getProperties('grantType', 'clientId', 'clientSecret', 'username', 'password', 'oauthServer');
+      oauthServer,
+      entryPoint,
+    } = this.getProperties('grantType', 'clientId', 'clientSecret', 'username', 'password', 'oauthServer', 'entryPoint');
     const authenticator = grantType === 'password' ? 'oauth2-password' : 'oauth2-clientcredentials';
+
+    if (entryPoint.length) {
+      Configuration.entryPoint = entryPoint;
+    }
 
     return this.get('session').authenticate(`authenticator:${authenticator}`, username, password, oauthServer, clientId, clientSecret)
       .catch((reason) => {
