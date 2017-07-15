@@ -5,6 +5,9 @@ module('Unit | Utility | configuration');
 
 // Replace this with your real tests.
 test('it works', function(assert) {
-  let result = configuration();
-  assert.ok(result);
+  const element = document.createElement('div');
+  element.setAttribute('data-hal-entrypoint', 'http://zombo.com')
+
+  configuration.loadFromElement(element);
+  assert.equal(configuration.entryPoint, 'http://zombo.com');
 });

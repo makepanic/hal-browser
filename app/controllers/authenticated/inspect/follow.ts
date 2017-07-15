@@ -26,14 +26,15 @@ export default Ember.Controller.extend({
       const href = this.get('link.href');
       const data = this.get('data');
 
-      const url = urltemplate.parse(href).expand(expand);
-      const method = this.get('method');
+      const url = new UriTemplate(href).fill(expand);
+      const method: HttpMethod = this.get('method');
       const body = ['PUT', 'POST'].includes(method) ? JSON.stringify(data) : '';
 
       return this.transitionToRoute('authenticated.inspect', url, {
         queryParams: {
           method,
-          body
+          body,
+          t: Date.now()
         }
       });
     }

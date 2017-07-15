@@ -6,6 +6,9 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     // Add options here
     // sourcemaps: {enabled: true},
+    'ember-cli-babel': {
+      includePolyfill: true
+    }
   });
 
   app.import(`${app.bowerDirectory}/prism-duotone-dark/index.css`);
@@ -13,8 +16,7 @@ module.exports = function(defaults) {
   app.import(`${app.bowerDirectory}/prism/components/prism-json.js`);
   app.import(`${app.bowerDirectory}/prism/components/prism-yaml.js`);
 
-  app.import(app.bowerDirectory + '/url-template/lib/url-template.js');
-  app.import(app.bowerDirectory + '/uri-templates/uri-templates.js');
+  app.import(`${app.bowerDirectory}/uri-templates/uri-templates.js`);
 
   app.import(`${app.bowerDirectory}/semantic/dist/semantic.min.css`);
   app.import(`${app.bowerDirectory}/semantic/dist/themes/default/assets/fonts/icons.eot`, { destDir: "assets/themes/default/assets/fonts" });

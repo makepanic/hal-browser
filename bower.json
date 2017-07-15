@@ -4,7 +4,6 @@
     "semantic": "^2.2.7",
     "prism": "^1.6.0",
     "prism-duotone-dark": "https://raw.githubusercontent.com/PrismJS/prism-themes/master/themes/prism-duotone-dark.css",
-    "url-template": "^2.0.8",
     "uri-templates": "^0.1.9"
   }
 }

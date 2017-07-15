@@ -5,9 +5,10 @@ const {inject: {service}, computed, get, isArray, assign} = Ember;
 export default Ember.Controller.extend({
   ajax: service(),
 
-  queryParams: ['method', 'body'],
+  queryParams: ['method', 'body', 't'],
   method: 'GET',
   body: '',
+  t: null,
 
   modes: [],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -74,10 +75,18 @@ export default Ember.Controller.extend({
       this.transitionToRoute('authenticated.inspect.follow', link.name);
     },
     followHref(link) {
-      this.transitionToRoute('authenticated.inspect', link.href);
+      this.transitionToRoute('authenticated.inspect', link.href, {
+        queryParams: {
+          t: Date.now()
+        }
+      });
     },
     openUrl(url) {
-      this.transitionToRoute('authenticated.inspect', url);
+      this.transitionToRoute('authenticated.inspect', url, {
+        queryParams: {
+          t: Date.now()
+        }
+      });
     }
   }
 });

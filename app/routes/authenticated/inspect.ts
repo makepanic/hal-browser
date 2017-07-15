@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import {Resource} from "hal-browser/types/Resource";
 
 const {inject:{service}} = Ember;
 
@@ -11,11 +12,14 @@ export default Ember.Route.extend({
     },
     method: {
       refreshModel: true
+    },
+    t: {
+      refreshModel: true
     }
   },
 
   model({resource_url, method, body}){
-    const requestOptions = {
+    const requestOptions: Resource = {
       type: method
     };
 
@@ -33,5 +37,5 @@ export default Ember.Route.extend({
 
         return {response, header, method, body, status: jqXHR.status, textStatus, url: resource_url};
       });
-  }
+  },
 });
