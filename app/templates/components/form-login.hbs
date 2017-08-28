@@ -39,7 +39,7 @@
     </div>
   {{/if}}
 
-  <button type="button" class="ui left labeled primary fluid icon button" {{action 'submit'}}>
+  <button type="button" class="ui left labeled primary fluid icon button {{if loading 'loading'}}" {{action 'submit'}}>
     <i class="sign in icon"></i>
     Sign in
   </button>

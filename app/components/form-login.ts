@@ -16,6 +16,7 @@ export default Component.extend({
   username: '',
   password: '',
   entryPoint: Configuration.entryPoint,
+  loading: false,
 
   authenticate(){
     const {
@@ -33,8 +34,10 @@ export default Component.extend({
       Configuration.entryPoint = entryPoint;
     }
 
+    this.set('loading', true);
     return this.get('session').authenticate(`authenticator:${authenticator}`, username, password, oauthServer, clientId, clientSecret)
       .catch((reason) => {
+        this.set('loading', false);
         this.set('errorMessage', reason.error || reason);
       });
   },

@@ -1,18 +1,24 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "es2017",
     "allowJs": true,
     "moduleResolution": "node",
     "noEmitOnError": false,
     "noEmit": true,
+    "sourceMap": true,
     "baseUrl": ".",
+    "module": "es6",
     "paths": {
       "hal-browser/tests/*": ["tests/*"],
-      "hal-browser/*": ["app/*"]
+      "hal-browser/*": [
+        "app/*"
+      ]
     }
   },
-  "include": [
-    "app/**/*",
-    "tests/**/*"
+  "exclude": [
+    "tmp",
+    "dist",
+    "node_modules",
+    "bower_components"
   ]
 }
